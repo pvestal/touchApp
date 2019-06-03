@@ -3,6 +3,9 @@ import App from './App.vue'
 import {store} from './store/'
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import Vuetify from 'vuetify'
+
+Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
@@ -20,20 +23,16 @@ new Vue({
     messagingSenderId: '50135964078',
     appId: '1:50135964078:web:6c265b028b1d5ad1'
   })
+  
 
   //check if auth
   firebase.auth().onAuthStateChanged((user) => {
-//     console.log('auth listener', user)
+    //console.log('auth listener', user)
     if(user) {
       //load online users from firebase
-      console.log('user: ', user)
-//       this.$store.dispatch('loadOnlineUsers')
+      this.$store.dispatch('loadOnlineUsers')
     }
   })
 
-  //load projects from firebase
-//   this.$store.dispatch('loadProjects')
-  //load chats from firebase
-//   this.$store.dispatch('loadChats')
   }
 }).$mount('#app')

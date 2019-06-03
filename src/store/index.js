@@ -7,6 +7,7 @@ import 'firebase/database'
 import AuthModule from './AuthModule'
 // import format from 'date-fns/format'
 
+
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -39,8 +40,9 @@ export const store = new Vuex.Store({
         result[0] = snapshot.numChildren()
         result[1] = snapshot.val()
         commit('SET_ONLINE_USERS', result)
-        console.log("onlineUsers: ", result[1])
+        // console.log("onlineUsers: ", result[1])
       })
+      .catch(error => console.log(error))
     },
     clearError ({commit}) {
       commit('clearError')

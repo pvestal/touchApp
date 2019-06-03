@@ -38,7 +38,6 @@ const AuthModule = {
       //https://developers.google.com/identity/protocols/googlescopes#oauth2v2
       provider.addScope("https://www.googleapis.com/auth/userinfo.email")
       provider.addScope("https://www.googleapis.com/auth/userinfo.profile")
-      // firebase.auth().signInWithRedirect(provider)
       firebase.auth().signInWithPopup(provider)
       .then(googleData => {
         user = googleData.user
@@ -48,13 +47,23 @@ const AuthModule = {
           email: user.email,
           photoURL: user.photoURL,
           created: user.metadata.creationTime,
-          lastSignIn: user.metadata.lastSignInTime
+          lastSignIn: user.metadata.lastSignInTime,
+          games: []
         }
         firebase.database().ref('users').child(user.uid).set(googleUser)
         commit('SET_USER', googleUser)
-        
       })
       .catch(error => console.log(error))
+      // let user = firebase.auth().currentUser
+      
+      // firebase.firestore().collection('users').doc(user.uid).set({
+      //       id: user.uid, 
+      //       displayName: user.displayName, 
+      //       photoURL: user.photoURL,
+      //       created: user.metadata.creationTime,
+      //       lastSignIn: user.metadata.lastSignInTime
+      // })
+      // .catch(error => console.log(error))
     },
     googleSignOut() {
       firebase.auth().signOut()
