@@ -1,6 +1,15 @@
 .DS_Store
 node_modules
 /dist
+.firebase/
+.firebaserc
+.gitignore
+babel.config.js
+database.rules.json
+firestore.indexes.json
+firestore.rules
+package-lock.json
+storage.rules
 
 # local env files
 .env.local
