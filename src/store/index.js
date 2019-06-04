@@ -5,6 +5,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import AuthModule from './AuthModule'
+import GameModule from './GameModule'
 // import format from 'date-fns/format'
 
 
@@ -12,7 +13,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   modules: {
-    auth: AuthModule,
+    AuthModule,
+    GameModule
   },
   state: {
     loading: false,
@@ -43,9 +45,6 @@ export const store = new Vuex.Store({
         // console.log("onlineUsers: ", result[1])
       })
       .catch(error => console.log(error))
-    },
-    clearError ({commit}) {
-      commit('clearError')
     }
   },
   getters: {
