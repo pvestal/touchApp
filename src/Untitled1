@@ -1,0 +1,5 @@
+        if (snapObj.myCounter % 2) {
+            snapObj.letter = "X"
+        } else {
+            snapObj.letter = "O"
+        }

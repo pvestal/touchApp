@@ -1,32 +1,22 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Game />
-    <Chat/>
-  </div>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Vue+Vuetify+Firebase</span>
+        <v-spacer></v-spacer>
+        <span class="font-weight-light">TURNBASED APP</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+
+    </v-toolbar>
+
+    <v-content>
+      <v-container>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> | 
+      <router-link to="/games">Games</router-link>
+    </v-container>
+    <router-view/>
+    </v-content>
+  </v-app>
 </template>
-
-<script>
-import Chat from './components/Chat.vue'
-import Game from './components/GameBoard.vue'
-import 'vuetify/dist/vuetify.min.css'
-
-export default {
-  name: 'app',
-  components: {
-    Chat,
-    Game
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

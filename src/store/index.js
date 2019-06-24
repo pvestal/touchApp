@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import firebase from 'firebase/app'
-// import 'firebase/firestore'
+import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/database'
 import AuthModule from './AuthModule'
@@ -19,7 +19,7 @@ export const store = new Vuex.Store({
   state: {
     loading: false,
     error: null,
-    onlineUsers: []
+    onlineUsers: [],
   },
   mutations: {
     SET_LOADING (state, payload) {
@@ -56,6 +56,6 @@ export const store = new Vuex.Store({
     },
     onlineUsers (state) {
       return state.onlineUsers
-    }
+    },
   }
 })
